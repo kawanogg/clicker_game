@@ -4,6 +4,6 @@ Obs.: Foi o Gustavo
 
 
 Classes iniciadas:
-    -Game.java
-    -Main.java
-    -Window.java
+    -Entity.java
+    -Frame.java
+    Momento atual: Está desenhando entidade (Panel) no Frame.
