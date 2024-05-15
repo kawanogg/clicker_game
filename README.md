@@ -3,7 +3,7 @@
 Obs.: Foi o Gustavo
 
 
-Classes iniciadas:
-    -Entity.java
-    -Frame.java
-    Momento atual: Está desenhando entidade (Panel) no Frame.
+Classes iniciadas: <br>
+    -Entity.java <br>
+    -Frame.java <br>
+    Momento atual: Está desenhando entidade (Panel) no Frame. <br>
