@@ -1,30 +1,15 @@
-import java.awt.Image;
-import java.io.File;
-import java.io.IOException;
+import javax.swing.*;
 
-import javax.imageio.ImageIO;
-import javax.swing.JPanel;
-
-public abstract class Entity {
+public abstract class Entity extends JFrame {
     
     float x, y;
-    JPanel entityPanel; // Estudar-lo-ei
+    private JFrame frame;
 
-    @SuppressWarnings("unused")
-    private Image img;
-
-    public Entity(float x, float y, File imgPath) {
-        this.x = x;
-        this.y = y;
-
-        try {
-            this.img = ImageIO.read(imgPath);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+    public Entity() {
+        this.frame = new JFrame("Retangulo");
+        this.frame.pack();
+        this.frame.setVisible(true);
     }
-
-    // Método draw??
+    
 
 }
