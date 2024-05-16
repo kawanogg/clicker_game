@@ -1,6 +1,8 @@
 public class Main {
     public static void main(String[] args) {
-        Game game = new Game();
-        game.addEntity(new Entity("images.jpeg", 50, 50, 0, 0));
+        GUI gui = new GUI();
+        Game game = new Game(gui);
+
+        gui.addEntity(new Entity("images.jpeg", 50, 50, 0, 0));
     }
 }
