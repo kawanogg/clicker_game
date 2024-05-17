@@ -2,8 +2,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class Planet extends Entity {
+    private int currentCurrency;
+
     public Planet (int x, int y, int width, int height) {
         super("img/planet.png", x, y, width, height);
+        currentCurrency = 0;
 
         addMouseListener(new MouseAdapter() {
             @Override
@@ -14,7 +17,8 @@ public class Planet extends Entity {
                 System.out.printf("Mouse: (%d, %d)\n", mouseX, mouseY);
 
                 if (mouseX >= x && mouseX <= x + width && mouseY >= y && mouseY <= y + height) {
-                    System.out.println("Eu não sou um animal");
+                    currentCurrency++;
+                    System.out.println("+1");
                 }
             }
         });
