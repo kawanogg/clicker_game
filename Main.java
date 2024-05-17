@@ -3,6 +3,6 @@ public class Main {
         GUI gui = new GUI();
         Game game = new Game(gui);
 
-        gui.addEntity(new Entity("images.jpeg", 50, 50, 0, 0));
+        //gui.addEntity(new Entity("images.jpeg", 50, 50, 0, 0));
     }
 }
