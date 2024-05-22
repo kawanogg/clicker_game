@@ -1,3 +1,4 @@
+package Engine;
 public class Generator {
     private Entity entity;
     private double productionRate;
