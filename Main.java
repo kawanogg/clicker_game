@@ -3,6 +3,6 @@ public class Main {
         GUI gui = new GUI();
         Game game = new Game(gui);
 
-        gui.addEntity(new Planet(50, 50, 100, 100));
+        gui.addEntity(new BlackHole(50, 50, 100, 100));
     }
 }
