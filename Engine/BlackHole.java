@@ -30,8 +30,6 @@ public class BlackHole extends Entity {
                 int mouseX = e.getX();
                 int mouseY = e.getY();
 
-                System.out.printf("Mouse: (%d, %d)\n", mouseX, mouseY);
-
                 if (mouseX >= x && mouseX <= x + width && mouseY >= y && mouseY <= y + height) {
                     resizeWhenClicked();
                     player.addCurrency(1);
