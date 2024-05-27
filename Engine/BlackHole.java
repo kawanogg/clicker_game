@@ -10,19 +10,21 @@ import javax.swing.Timer;
 public class BlackHole extends Entity {
 
     private Player player;
-    private Image image_clicked;
-    private int x_clicked;
-    private int y_clicked;
+    private Image image_init, image_clicked;
+    private int x_init, y_init, x_clicked, y_clicked;
 
 
     public BlackHole (int x, int y, int width, int height, Player player) {
         super("img/black_hole.png", x, y, width, height);
 
         this.player = player;
+        this.x_init = x;
+        this.y_init = y;
         this.x_clicked = x - 10;
         this.y_clicked = y - 10;
 
-        image_clicked = image.getScaledInstance(width + 20,  height + 20, Image.SCALE_DEFAULT);
+        this.image_init = image;
+        this.image_clicked = image.getScaledInstance(width + 20,  height + 20, Image.SCALE_DEFAULT);
 
         addMouseListener(new MouseAdapter() {
             @Override
@@ -39,16 +41,16 @@ public class BlackHole extends Entity {
     } 
 
     public void resizeWhenClicked () {
-        this.displayed_image = this.image_clicked;
-        this.displayed_x = this.x_clicked;
-        this.displayed_y = this.y_clicked;
+        this.image = this.image_clicked;
+        this.x = this.x_clicked;
+        this.y = this.y_clicked;
         repaint();
 
         ActionListener task = new ActionListener() {
             public void actionPerformed (ActionEvent evt) {
-                displayed_image = image;
-                displayed_x = x;
-                displayed_y = y;
+                image = image_init;
+                x = x_init;
+                y = y_init;
                 repaint();
             }
         };
