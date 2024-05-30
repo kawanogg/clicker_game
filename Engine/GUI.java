@@ -1,21 +1,22 @@
 package Engine;
 import java.util.ArrayList;
+import java.awt.Color;
+import java.awt.Graphics;
+import javax.swing.JPanel;
 
 public class GUI {
+    private Panel panel;
     private Frame frame;
-    private ArrayList<Entity> entities;
 
     public GUI () {
         this.frame = new Frame();
-        this.entities = new ArrayList<Entity>();
+        this.panel = new Panel();
 
-        this.frame.setVisible(true);
+        this.panel.startPanel();
     }
 
-    public void addEntity(Entity newEntity) {
-        this.entities.add(newEntity);
-        this.frame.add(newEntity);
-
+    public void openFrame () {
+        this.frame.add(this.panel);
         this.frame.setVisible(true);
     }
 }

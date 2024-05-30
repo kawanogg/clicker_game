@@ -7,7 +7,7 @@ import java.io.*;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-public class Entity extends JPanel {
+public abstract class Entity extends Paintable {
     protected Image image;
     protected int x, y, width, height;
 
@@ -27,6 +27,10 @@ public class Entity extends JPanel {
 
         this.setSize(new Dimension(x, y));
 
+    }
+
+    public void drawing () {
+        repaint();
     }
 
     @Override
