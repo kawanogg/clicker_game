@@ -10,12 +10,20 @@ import javax.swing.*;
 public class Entity extends JPanel {
     protected Image image;
     protected int x, y, width, height;
+    protected String name;
+    protected double productionRate;
+    protected double cost;
+    protected int quantity;
 
-    public Entity(String imagePath, int x, int y, int width, int height) {
+    public Entity(String imagePath, int x, int y, int width, int height, String name, double productionRate, double cost, int quantity) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
+        this.name = name;
+        this.productionRate = productionRate;
+        this.cost = cost;
+        this.quantity = quantity;
 
         try {
             BufferedImage buffered_image = ImageIO.read(new File(imagePath));
@@ -27,6 +35,30 @@ public class Entity extends JPanel {
 
         this.setSize(new Dimension(x, y));
 
+    }
+
+    protected double getProductionRate(){
+        return productionRate;
+    }
+
+    protected double getCost(){
+        return cost;
+    }
+
+    protected int getQuantity(){
+        return quantity;
+    }
+
+    protected double updateProductionRate(double value){
+        return value * productionRate;
+    }
+
+    protected int buy(int quantity){
+        return this.quantity += quantity;
+    }
+
+    protected int sell(int quantity){
+        return this.quantity -= quantity;
     }
 
     @Override

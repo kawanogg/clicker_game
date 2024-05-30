@@ -54,7 +54,7 @@
     <li>
         updatePPS
         <ul>
-            <li>Essa thread é utilizada para manter o PPS atualizado a cada segundo. Caso o resource compre algum objeto (planeta, estrela ou cometa), o PPS é atualizado no próximo segundo.</li>
+            <li>Essa thread é utilizada para manter o PPS atualizado a cada segundo. Caso o player compre algum objeto (planeta, estrela ou cometa), o PPS é atualizado no próximo segundo.</li>
         </ul>
     </li>
 </ul>
@@ -67,7 +67,7 @@
         Desacoplar as funções Getters e Setters (linha 56 do Player.java) dos objetos espaciais da classe Player.
         <ul>
             <li>
-                Criar uma classe Shop.java (ou semelhante) para tratar a compra dos objetos e atualizar a quantidade de cada que o resource possui.
+                Criar uma classe Shop.java (ou semelhante) para tratar a compra dos objetos e atualizar a quantidade de cada que o player possui.
             </li>
             <li>
                 Dividir o pacote Engine em outros pacotes. Tem classes que não fazem função de engine no pacote.

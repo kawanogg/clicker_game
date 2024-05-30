@@ -6,8 +6,8 @@ public class Main {
         @SuppressWarnings("unused")
         Game game = new Game(gui);
 
-        Player player = new Player();
+        Resource resource = new Resource();
 
-        gui.addEntity(new BlackHole(50, 50, 100, 100, player));
+        gui.addEntity(new BlackHole(50, 50, 100, 100, 2, 100, 1));
     }
 }

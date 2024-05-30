@@ -1,18 +1,16 @@
 package Engine;
 import Threads.addCurrency;
 
-public class Player {
-    private int pedros_currency;
-    private int planet_count; // +1 pedros por segundo.
-    private int star_count;   // +3 pedros por segundo.
-    private int comet_count;  // +5 pedros por segundo.
-    private int pps;          //Pedros por segundo.
+import java.util.ArrayList;
 
-    public Player() {
+public class Resource {
+    private int pedros_currency;
+    private int pps;          //Pedros por segundo.
+    private Planet planet;
+    private BlackHole blackhole;
+
+    public Resource() {
         this.pedros_currency = 0;
-        this.planet_count = 1;
-        this.star_count = 1;
-        this.comet_count = 0;
         this.pps = 0;
         addCurrencyThread();
         update_ppsThread();
@@ -53,42 +51,6 @@ public class Player {
 
     /*---------------------------------------------------*/
 
-    //Getters e Setters.
 
-    public void addPlanet() {
-        this.planet_count++;
-    }
-
-    public void removePlanet() {
-        this.planet_count--;
-    }
-
-    public int getPlanetCount() {
-        return this.planet_count;
-    }
-
-    public void addStar() {
-        this.star_count++;
-    }
-
-    public void removeStar() {
-        this.star_count--;
-    }
-
-    public int getStarCount() {
-        return this.star_count;
-    }
-
-    public void addComet() {
-        this.comet_count++;
-    }
-
-    public void removeComet() {
-        this.comet_count--;
-    }
-
-    public int getCometCount() {
-        return this.comet_count;
-    }
 
 }

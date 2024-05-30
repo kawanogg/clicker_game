@@ -4,20 +4,26 @@ import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Image;
-import java.awt.Graphics;
 import javax.swing.Timer;
 
 public class BlackHole extends Entity {
-
-    private Player player;
     private Image image_init, image_clicked;
     private int x_init, y_init, x_clicked, y_clicked;
 
 
-    public BlackHole (int x, int y, int width, int height, Player player) {
-        super("img/black_hole.png", x, y, width, height);
+    public BlackHole (int x, int y, int width, int height, double productionRate, double cost, int quantity) {
+        super(
+                "img/black_hole.png",
+                x,
+                y,
+                width,
+                height,
+                "Black Holes",
+                productionRate,
+                cost,
+                quantity
+        );
 
-        this.player = player;
         this.x_init = x;
         this.y_init = y;
         this.x_clicked = x - 10;
@@ -34,7 +40,6 @@ public class BlackHole extends Entity {
 
                 if (mouseX >= x && mouseX <= x + width && mouseY >= y && mouseY <= y + height) {
                     resizeWhenClicked();
-                    player.addCurrency(1);
                 }
             }
         });

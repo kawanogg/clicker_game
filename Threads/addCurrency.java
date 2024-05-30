@@ -1,20 +1,20 @@
 package Threads;
-import Engine.Player;
+import Engine.Resource;
 
 public class addCurrency extends Thread{
 
-    private Player player;
+    private Resource resource;
 
-    public addCurrency(Player player){
-        this.player = player;
+    public addCurrency(Resource resource){
+        this.resource = resource;
     }
     
     public void run(){
         while(true){
             try{
                 Thread.sleep(1000);
-                player.addCurrency(player.getPPS());
-                System.out.println("Currency: " + player.getCurrency());
+                resource.addCurrency(resource.getPPS());
+                System.out.println("Currency: " + resource.getCurrency());
             }catch(InterruptedException e){
                 e.printStackTrace();
             }
