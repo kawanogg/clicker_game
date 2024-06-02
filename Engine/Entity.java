@@ -7,7 +7,7 @@ import java.io.*;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-public class Entity extends JPanel {
+public abstract class Entity extends Paintable {
     protected Image image;
     protected int x, y, width, height;
     protected String name;
