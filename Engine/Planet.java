@@ -15,5 +15,7 @@ public class Planet extends Entity {
                 cost,
                 quantity
         );
+
+        Resource.addEntity(this);
     }
 }

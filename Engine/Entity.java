@@ -37,28 +37,32 @@ public class Entity extends JPanel {
 
     }
 
-    protected double getProductionRate(){
+    public double getProductionRate(){
         return productionRate;
     }
 
-    protected double getCost(){
+    public double getCost(){
         return cost;
     }
 
-    protected int getQuantity(){
+    public int getQuantity(){
         return quantity;
     }
 
-    protected double updateProductionRate(double value){
+    public double updateProductionRate(double value){
         return value * productionRate;
     }
 
-    protected int buy(int quantity){
+    public int buy(int quantity){
         return this.quantity += quantity;
     }
 
-    protected int sell(int quantity){
+    public int sell(int quantity){
         return this.quantity -= quantity;
+    }
+
+    public double getTotalProduction(){
+        return getQuantity() * getProductionRate();
     }
 
     @Override

@@ -6,10 +6,9 @@ import java.util.ArrayList;
 public class Resource {
     private int pedros_currency;
     private int pps;          //Pedros por segundo.
-    private Planet planet;
-    private BlackHole blackhole;
+    private static ArrayList<Entity> entities = new ArrayList<Entity>();
 
-    public Resource() {
+    Resource() {
         this.pedros_currency = 0;
         this.pps = 0;
         addCurrencyThread();
@@ -33,6 +32,10 @@ public class Resource {
 
     /*---------------------------------------------------*/
 
+    public static void addEntity(Entity entity) {
+        entities.add(entity);
+    }
+
 
     /*---------TRATANDO PEDROS POR SEGUNDO (pps)---------*/
 
@@ -45,8 +48,13 @@ public class Resource {
         return this.pps;
     }
 
-    public void setPPS(int pps) {
-        this.pps = pps;
+    public void setPPS() {
+        int sum = 0;
+        for (Entity e : entities) {
+            sum += e.getTotalProduction();
+        }
+
+        this.pps = sum;
     }
 
     /*---------------------------------------------------*/

@@ -43,6 +43,8 @@ public class BlackHole extends Entity {
                 }
             }
         });
+
+        Resource.addEntity(this);
     } 
 
     public void resizeWhenClicked () {
