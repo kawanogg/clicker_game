@@ -53,12 +53,12 @@ public abstract class Entity extends Paintable {
         return value * productionRate;
     }
 
-    public int buy(int quantity){
-        return this.quantity += quantity;
+    public int buy(){
+        return this.quantity++;
     }
 
-    public int sell(int quantity){
-        return this.quantity -= quantity;
+    public int sell(){
+        return this.quantity --;
     }
 
     public double getTotalProduction(){

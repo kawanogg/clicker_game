@@ -11,8 +11,6 @@ public class GUI {
     public GUI () {
         this.frame = new Frame();
         this.panel = new Panel();
-
-        this.panel.startPanel();
     }
 
     public void openFrame () {

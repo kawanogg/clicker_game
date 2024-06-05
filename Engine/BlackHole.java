@@ -1,11 +1,6 @@
 package Engine;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.Image;
-import javax.swing.Timer;
 
 public class BlackHole extends Entity {
     private Image image_init, image_clicked;
@@ -33,18 +28,6 @@ public class BlackHole extends Entity {
         this.image_init = image;
         this.image_clicked = image.getScaledInstance(width + 20,  height + 20, Image.SCALE_DEFAULT);
 
-        addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed (MouseEvent e) {
-                int mouseX = e.getX();
-                int mouseY = e.getY();
-
-                if (mouseX >= x && mouseX <= x + width && mouseY >= y && mouseY <= y + height) {
-                    resizeWhenClicked();
-                }
-            }
-        });
-
         Resource.addEntity(this);
     } 
 
@@ -53,18 +36,30 @@ public class BlackHole extends Entity {
         this.x = this.x_clicked;
         this.y = this.y_clicked;
         repaint();
+    }
 
-        ActionListener task = new ActionListener() {
-            public void actionPerformed (ActionEvent evt) {
-                image = image_init;
-                x = x_init;
-                y = y_init;
-                repaint();
-            }
-        };
+    public void resizeBack () {
+        image = image_init;
+        x = x_init;
+        y = y_init;
+        
 
-        Timer timer = new Timer(50, task);
-        timer.setRepeats(false);
-        timer.start();
+        
+    }
+
+    public int getX () {
+        return this.x;
+    }
+
+    public int getY () {
+        return this.y;
+    }
+
+    public int getWidth () {
+        return this.width;
+    }
+
+    public int getHeight () {
+        return this.height;
     }
 }

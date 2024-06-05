@@ -1,6 +1,6 @@
 package Engine;
 
-public class Planet extends SpaceObject {
+public class Planet extends Entity {
 
     public Planet (int x, int y, int width, int height, double productionRate, double cost, int quantity) {
         super(
