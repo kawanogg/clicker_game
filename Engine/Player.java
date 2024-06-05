@@ -10,8 +10,8 @@ public class Player {
 
     public Player() {
         this.pedros_currency = 0;
-        this.planet_count = 1;
-        this.star_count = 1;
+        this.planet_count = 0;
+        this.star_count = 0;
         this.comet_count = 0;
         this.pps = 0;
         addCurrencyThread();
@@ -25,11 +25,11 @@ public class Player {
         currencyThread.start();
     }
 
-    public int getCurrency() {
+    public synchronized int getCurrency() {
         return this.pedros_currency;
     }
     
-    public void addCurrency(int amount) {
+    public synchronized void addCurrency(int amount) {
         this.pedros_currency += amount;
     }
 

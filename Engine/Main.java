@@ -1,12 +1,14 @@
 package Engine;
 public class Main {
+
     public static void main(String[] args) {
         
-        GUI gui = new GUI();
+        Player player = new Player();
+        GUI gui = new GUI(player);
         @SuppressWarnings("unused")
         Game game = new Game(gui);
 
-        Player player = new Player();
+
 
         gui.addEntity(new BlackHole(50, 50, 100, 100, player));
     }
