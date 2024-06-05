@@ -35,31 +35,11 @@ public class BlackHole extends Entity {
         this.image = this.image_clicked;
         this.x = this.x_clicked;
         this.y = this.y_clicked;
-        repaint();
     }
 
     public void resizeBack () {
-        image = image_init;
-        x = x_init;
-        y = y_init;
-        
-
-        
-    }
-
-    public int getX () {
-        return this.x;
-    }
-
-    public int getY () {
-        return this.y;
-    }
-
-    public int getWidth () {
-        return this.width;
-    }
-
-    public int getHeight () {
-        return this.height;
+        this.image = this.image_init;
+        this.x = this.x_init;
+        this.y = this.y_init;
     }
 }

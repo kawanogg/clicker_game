@@ -7,7 +7,7 @@ import java.io.*;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-public abstract class Entity extends Paintable {
+public abstract class Entity {
     protected Image image;
     protected int x, y, width, height;
     protected String name;
@@ -32,9 +32,26 @@ public abstract class Entity extends Paintable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
-        this.setSize(new Dimension(x, y));
+    public Image getImage () {
+        return this.image;
+    }
 
+    public int getX () {
+        return this.x;
+    }
+
+    public int getY () {
+        return this.y;
+    }
+
+    public int getWidth () {
+        return this.width;
+    }
+
+    public int getHeight () {
+        return this.height;
     }
 
     public double getProductionRate(){
@@ -63,13 +80,5 @@ public abstract class Entity extends Paintable {
 
     public double getTotalProduction(){
         return getQuantity() * getProductionRate();
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        if (this.image != null) {
-            g.drawImage(this.image, x, y, this);
-        }
     }
 }
