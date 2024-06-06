@@ -1,19 +1,19 @@
 package Threads;
-import Engine.Resource;
+import Engine.Player;
 
 public class updatePPS extends Thread {
 
-    private Resource resource;
+    private Player player;
 
-    public updatePPS(Resource resource){
-        this.resource = resource;
+    public updatePPS(Player player){
+        this.player = player;
     }
     
     public void run(){
         while(true){
             try{
                 Thread.sleep(1000);
-                resource.setPPS();
+                player.setPPS((player.getPlanetCount() * 1) + (player.getStarCount() * 3) + (player.getCometCount() * 5));
             }catch(InterruptedException e){
                 e.printStackTrace();
             }

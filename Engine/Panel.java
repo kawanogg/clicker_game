@@ -2,6 +2,7 @@ package Engine;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Graphics;
@@ -12,19 +13,22 @@ import java.util.ArrayList;
 public class Panel extends JPanel {
     private ArrayList<Entity> entities;
     private ArrayList<ShopItem> shop;
+    private JLabel currencyLabel;
 
-    public Panel () {
+    public Panel (Player player) {
         this.entities = new ArrayList<Entity>();
         this.shop = new ArrayList<ShopItem>();
+        this.currencyLabel = new JLabel();
 
         this.setLayout(null);
 
-        this.addEntity(new BlackHole(50, 50, 100, 100, 0, 0, 0));
+        this.addEntity(new BlackHole(50, 50, 100, 100, player));
         
-        this.shop.add(new ShopItem(400, 0, 200, 100,  new Planet(200, 50, 50, 50, 100.0, 50.0, 1)));
-        this.shop.add(new ShopItem(400, 100, 200, 100, new Planet(200, 50, 50, 50, 100.0, 50.0, 1)));
+        this.shop.add(new ShopItem(400, 0, 200, 100,  new Planet(200, 50, 50, 50)));
+        this.shop.add(new ShopItem(400, 100, 200, 100, new Planet(200, 50, 50, 50)));
 
         this.add(this.shop.get(0).getButton());
+        this.add(this.currencyLabel);
         this.setVisible(true);
 
         addMouseListener(new MouseAdapter() {

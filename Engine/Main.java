@@ -4,8 +4,5 @@ public class Main {
         @SuppressWarnings("unused")
         Game game = new Game();
         game.startGame();
-
-
-        Resource resource = new Resource();
     }
 }

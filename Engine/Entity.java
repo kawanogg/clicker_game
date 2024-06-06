@@ -15,15 +15,11 @@ public abstract class Entity {
     protected double cost;
     protected int quantity;
 
-    public Entity(String imagePath, int x, int y, int width, int height, String name, double productionRate, double cost, int quantity) {
+    public Entity(String imagePath, int x, int y, int width, int height) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
-        this.name = name;
-        this.productionRate = productionRate;
-        this.cost = cost;
-        this.quantity = quantity;
 
         try {
             BufferedImage buffered_image = ImageIO.read(new File(imagePath));
@@ -52,33 +48,5 @@ public abstract class Entity {
 
     public int getHeight () {
         return this.height;
-    }
-
-    public double getProductionRate(){
-        return productionRate;
-    }
-
-    public double getCost(){
-        return cost;
-    }
-
-    public int getQuantity(){
-        return quantity;
-    }
-
-    public double updateProductionRate(double value){
-        return value * productionRate;
-    }
-
-    public int buy(){
-        return this.quantity++;
-    }
-
-    public int sell(){
-        return this.quantity --;
-    }
-
-    public double getTotalProduction(){
-        return getQuantity() * getProductionRate();
     }
 }

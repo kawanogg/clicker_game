@@ -25,7 +25,7 @@ public class ShopItem {
         this.buy.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed (ActionEvent evt) {
-                object.buy();
+                
             }
         });
     }
