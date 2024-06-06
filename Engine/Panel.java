@@ -14,8 +14,11 @@ public class Panel extends JPanel {
     private ArrayList<Entity> entities;
     private ArrayList<ShopItem> shop;
     private JLabel currencyLabel;
+    private Player player;
 
     public Panel (Player player) {
+        this.player = player;
+
         this.entities = new ArrayList<Entity>();
         this.shop = new ArrayList<ShopItem>();
         this.currencyLabel = new JLabel();
@@ -24,8 +27,8 @@ public class Panel extends JPanel {
 
         this.addEntity(new BlackHole(50, 50, 100, 100, player));
         
-        this.shop.add(new ShopItem(400, 0, 200, 100,  new Planet(200, 50, 50, 50)));
-        this.shop.add(new ShopItem(400, 100, 200, 100, new Planet(200, 50, 50, 50)));
+        this.shop.add(new ShopItem(400, 0, 200, 100, new Planet(200, 50, 50, 50), player));
+        this.shop.add(new ShopItem(400, 100, 200, 100, new Planet(200, 50, 50, 50), player));
 
         this.add(this.shop.get(0).getButton());
         this.add(this.currencyLabel);
@@ -40,8 +43,7 @@ public class Panel extends JPanel {
                 BlackHole bh = (BlackHole) entities.get(0);
 
                 if (mouseX >= bh.getX() && mouseX <= bh.getX() + bh.getWidth() && mouseY >= bh.getY() && mouseY <= bh.getY() + bh.getHeight()) {
-                    //bh.addCurrency(1);
-                    
+                    player.addCurrency(1);
                     bh.resizeWhenClicked();
                     repaint();
 

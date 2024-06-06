@@ -9,7 +9,7 @@ public class BlackHole extends Entity {
 
 
     public BlackHole (int x, int y, int width, int height, Player player) {
-        super("img/black_hole.png", x, y, width, height);
+        super("img/black_hole.png", x, y, width, height, -1);
 
         this.player = player;
 

@@ -9,17 +9,14 @@ import javax.swing.*;
 
 public abstract class Entity {
     protected Image image;
-    protected int x, y, width, height;
-    protected String name;
-    protected double productionRate;
-    protected double cost;
-    protected int quantity;
+    protected int x, y, width, height, id;
 
-    public Entity(String imagePath, int x, int y, int width, int height) {
+    public Entity(String imagePath, int x, int y, int width, int height, int id) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
+        this.id = id;
 
         try {
             BufferedImage buffered_image = ImageIO.read(new File(imagePath));
@@ -48,5 +45,9 @@ public abstract class Entity {
 
     public int getHeight () {
         return this.height;
+    }
+
+    public int getId () {
+        return this.id;
     }
 }

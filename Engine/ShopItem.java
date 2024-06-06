@@ -11,21 +11,23 @@ public class ShopItem {
     private Entity object;
     private int x, y, width, height;
     private JButton buy;
+    private Player player;
     
 
-    public ShopItem (int x, int y, int width, int height, Entity so) {
+    public ShopItem (int x, int y, int width, int height, Entity so, Player player) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
         this.object = so;    
+        this.player = player;
 
         this.buy = new JButton("Comprar");
         this.buy.setBounds(x + 90, y + 50, 100, 30);
         this.buy.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed (ActionEvent evt) {
-                
+                player.addObject(so.getId());
             }
         });
     }
