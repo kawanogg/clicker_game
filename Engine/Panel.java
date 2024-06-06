@@ -3,6 +3,7 @@ package Engine;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.JLabel;
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Graphics;
@@ -24,13 +25,18 @@ public class Panel extends JPanel {
         this.currencyLabel = new JLabel();
 
         this.setLayout(null);
+        this.setBackground(Color.black);
 
-        this.addEntity(new BlackHole(50, 50, 100, 100, player));
+        this.addEntity(new BlackHole(150, 170, 100, 100, player));
         
         this.shop.add(new ShopItem(400, 0, 200, 100, new Planet(200, 50, 50, 50), player));
-        this.shop.add(new ShopItem(400, 100, 200, 100, new Planet(200, 50, 50, 50), player));
+        this.shop.add(new ShopItem(400, 100, 200, 100, new Star(200, 50, 50, 50), player));
+        this.shop.add(new ShopItem(400, 200, 200, 100, new Comet(200, 50, 50, 50), player));
 
-        this.add(this.shop.get(0).getButton());
+
+        for (ShopItem item : shop) {
+            this.add(item.getButton());
+        }
         this.add(this.currencyLabel);
         this.setVisible(true);
 

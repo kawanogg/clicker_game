@@ -22,7 +22,7 @@ public class ShopItem {
         this.object = so;    
         this.player = player;
 
-        this.buy = new JButton("Comprar");
+        this.buy = new JButton("Buy");
         this.buy.setBounds(x + 90, y + 50, 100, 30);
         this.buy.addActionListener(new ActionListener() {
             @Override
