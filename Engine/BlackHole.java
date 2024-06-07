@@ -3,6 +3,7 @@ package Engine;
 import java.awt.Image;
 
 public class BlackHole extends Entity {
+    @SuppressWarnings("unused")
     private Player player;  
     private Image image_init, image_clicked;
     private int x_init, y_init, x_clicked, y_clicked;

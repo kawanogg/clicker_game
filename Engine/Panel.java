@@ -2,19 +2,27 @@ package Engine;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
+
+import Threads.printCurrency;
+
 import javax.swing.JLabel;
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Panel extends JPanel {
     private ArrayList<Entity> entities;
     private ArrayList<ShopItem> shop;
     private JLabel currencyLabel;
+    private JLabel gameName;
+    @SuppressWarnings("unused")
     private Player player;
 
     public Panel (Player player) {
@@ -23,6 +31,22 @@ public class Panel extends JPanel {
         this.entities = new ArrayList<Entity>();
         this.shop = new ArrayList<ShopItem>();
         this.currencyLabel = new JLabel();
+        this.currencyLabel = new JLabel("Currency: " + player.getCurrency());
+        this.currencyLabel.setBounds(30, 0, 100, 50);
+        this.currencyLabel.setFont(new Font("Comic Sans", Font.PLAIN, 16));
+        this.currencyLabel.setForeground(Color.white);
+
+        this.gameName = new JLabel("SPACE CLICKER");
+        this.gameName.setBounds(110, 350, 500, 50);
+        try {
+            Font customFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("../Font/Andromeda.ttf"));
+            this.gameName.setFont(customFont.deriveFont(Font.PLAIN, 45));
+        } catch (IOException | FontFormatException e) {
+            e.printStackTrace();
+        }
+        this.gameName.setForeground(Color.darkGray);
+
+        
 
         this.setLayout(null);
         this.setBackground(Color.black);
@@ -47,8 +71,12 @@ public class Panel extends JPanel {
         });
             this.add(item.getButton());
         }
+
         this.add(this.currencyLabel);
+        this.add(this.gameName);
         this.setVisible(true);
+
+        this.startPrintCurrency();
 
         addMouseListener(new MouseAdapter() {
             @Override
@@ -93,5 +121,9 @@ public class Panel extends JPanel {
         for (Entity entity : this.entities) {
             g.drawImage(entity.getImage(), entity.getX(), entity.getY(), this);
         }
+    }
+
+    public void startPrintCurrency() {
+        new printCurrency(player, this, this.currencyLabel).start();
     }
 }
