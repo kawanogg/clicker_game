@@ -32,7 +32,7 @@ public class Panel extends JPanel {
         this.shop = new ArrayList<ShopItem>();
         this.currencyLabel = new JLabel();
         this.currencyLabel = new JLabel("Currency: " + player.getCurrency());
-        this.currencyLabel.setBounds(30, 0, 100, 50);
+        this.currencyLabel.setBounds(30, 0, 1000, 50);
         this.currencyLabel.setFont(new Font("Comic Sans", Font.PLAIN, 16));
         this.currencyLabel.setForeground(Color.white);
 
@@ -53,9 +53,9 @@ public class Panel extends JPanel {
 
         this.addEntity(new BlackHole(100, 120, 200, 200, player));
         
-        this.shop.add(new ShopItem(400, 0, 200, 100, 1, new Planet(180, 50, 60, 60), player));
-        this.shop.add(new ShopItem(400, 100, 200, 100, 2, new Star(50, 80, 65, 65), player));
-        this.shop.add(new ShopItem(400, 200, 200, 100, 3, new Comet(285, 70, 80, 80), player));
+        this.shop.add(new ShopItem(400, 0, 200, 100, 10, new Planet(180, 50, 60, 60), player));
+        this.shop.add(new ShopItem(400, 100, 200, 100, 20, new Star(50, 80, 65, 65), player));
+        this.shop.add(new ShopItem(400, 200, 200, 100, 30, new Comet(285, 70, 80, 80), player));
 
         for (ShopItem item : shop) {
             item.getButton().addActionListener(new ActionListener() {

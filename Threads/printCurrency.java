@@ -20,7 +20,7 @@ public class printCurrency extends Thread {
     public void run(){
         while(true){
             try{
-                Thread.sleep(1000);
+                Thread.sleep(200);
                 this.currencyLabel.setText("Currency: " + player.getCurrency());
                 this.panel.repaint();
             }catch(InterruptedException e){
