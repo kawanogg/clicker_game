@@ -53,9 +53,9 @@ public class Panel extends JPanel {
 
         this.addEntity(new BlackHole(100, 120, 200, 200, player));
         
-        this.shop.add(new ShopItem(400, 0, 200, 100, 50, new Planet(200, 50, 50, 50), player));
-        this.shop.add(new ShopItem(400, 100, 200, 100, 1000, new Star(50, 75, 50, 50), player));
-        this.shop.add(new ShopItem(400, 200, 200, 100, 3000, new Comet(75, 300, 50, 50), player));
+        this.shop.add(new ShopItem(400, 0, 200, 100, 1, new Planet(180, 50, 60, 60), player));
+        this.shop.add(new ShopItem(400, 100, 200, 100, 2, new Star(50, 80, 65, 65), player));
+        this.shop.add(new ShopItem(400, 200, 200, 100, 3, new Comet(285, 70, 80, 80), player));
 
         for (ShopItem item : shop) {
             item.getButton().addActionListener(new ActionListener() {
