@@ -27,14 +27,24 @@ public class Panel extends JPanel {
         this.setLayout(null);
         this.setBackground(Color.black);
 
-        this.addEntity(new BlackHole(150, 170, 100, 100, player));
+        this.addEntity(new BlackHole(100, 120, 200, 200, player));
         
-        this.shop.add(new ShopItem(400, 0, 200, 100, new Planet(200, 50, 50, 50), player));
-        this.shop.add(new ShopItem(400, 100, 200, 100, new Star(200, 50, 50, 50), player));
-        this.shop.add(new ShopItem(400, 200, 200, 100, new Comet(200, 50, 50, 50), player));
-
+        this.shop.add(new ShopItem(400, 0, 200, 100, 50, new Planet(200, 50, 50, 50), player));
+        this.shop.add(new ShopItem(400, 100, 200, 100, 1000, new Star(50, 75, 50, 50), player));
+        this.shop.add(new ShopItem(400, 200, 200, 100, 3000, new Comet(75, 300, 50, 50), player));
 
         for (ShopItem item : shop) {
+            item.getButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed (ActionEvent evt) {
+                if (player.getCurrency() >= item.getPrice()) {
+                    if (!entities.contains(item.getObject())) { addEntity(item.getObject()); }
+                    player.subtractCurrency(item.getPrice());
+                    player.addObject(item.getObject().getId());
+                    repaint();
+                }
+            }
+        });
             this.add(item.getButton());
         }
         this.add(this.currencyLabel);

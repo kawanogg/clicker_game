@@ -29,6 +29,10 @@ public class Player {
         this.pedros_currency += amount;
     }
 
+    public synchronized void subtractCurrency(int amount) {
+        this.pedros_currency -= amount;
+    }
+
     /*---------------------------------------------------*/
 
 
