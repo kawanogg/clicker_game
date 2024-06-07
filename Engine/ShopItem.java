@@ -2,8 +2,6 @@ package Engine;
 
 import javax.swing.JButton;
 import java.awt.Image;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class ShopItem {
     private Entity object;
