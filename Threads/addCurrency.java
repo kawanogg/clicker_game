@@ -20,5 +20,4 @@ public class addCurrency extends Thread{
             }
         }
     }
-
 }
