@@ -24,6 +24,10 @@ public class Panel extends JPanel {
     private JLabel gameName;
     @SuppressWarnings("unused")
     private Player player;
+    private GameState gameState;
+    private Planet planet;
+    private Star star;
+    private Comet comet;
 
     public Panel(Player player) throws IOException {
         this.player = player;
@@ -32,7 +36,7 @@ public class Panel extends JPanel {
         this.shop = new ArrayList<ShopItem>();
         this.currencyLabel = new JLabel();
         this.currencyLabel = new JLabel("Currency: " + player.getCurrency());
-        this.currencyLabel.setBounds(30, 0, 1000, 50);
+        this.currencyLabel.setBounds(30, 30, 1000, 50);
         this.currencyLabel.setFont(new Font("Comic Sans", Font.PLAIN, 16));
         this.currencyLabel.setForeground(Color.white);
 
@@ -52,9 +56,9 @@ public class Panel extends JPanel {
 
         this.addEntity(new BlackHole(100, 120, 200, 200, player));
 
-        Planet planet = new Planet(180, 50, 60, 60);
-        Star star = new Star(50, 80, 65, 65);
-        Comet comet = new Comet(285, 70, 80, 80);
+        this.planet = new Planet(180, 50, 60, 60);
+        this.star = new Star(50, 80, 65, 65);
+        this.comet = new Comet(285, 70, 80, 80);
 
         this.shop.add(new ShopItem(400, 0, 200, 100, 10, planet, player));
         this.shop.add(new ShopItem(400, 100, 200, 100, 20, star, player));
@@ -91,10 +95,6 @@ public class Panel extends JPanel {
         this.add(this.gameName);
         this.setVisible(true);
 
-        GameState gameState = new GameState(400, 300, player);
-
-        this.add(gameState.getButton());
-
         this.startPrintCurrency();
 
         addMouseListener(new MouseAdapter() {
@@ -124,6 +124,10 @@ public class Panel extends JPanel {
                 }
             }
         });
+        
+        this.gameState = new GameState(30, 10, this.player);
+        this.add(gameState.getButton());
+        saveGame();
     }
 
     public void addEntity(Entity newEntity) {
@@ -145,5 +149,18 @@ public class Panel extends JPanel {
 
     public void startPrintCurrency() {
         new printCurrency(player, this, this.currencyLabel).start();
+    }
+
+    protected void saveGame() {
+        this.gameState.getButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                try {
+                    gameState.saveGame();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }

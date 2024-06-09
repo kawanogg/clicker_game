@@ -20,7 +20,7 @@ public class GameState {
         this.player = player;
 
         this.saveButton = new JButton("Save");
-        this.saveButton.setBounds(this.x + 90, this.y + 50, 100, 30);
+        this.saveButton.setBounds(this.x, this.y, 100, 30);
     }
 
     public void saveGame() throws IOException {
@@ -33,9 +33,5 @@ public class GameState {
 
     public JButton getButton() {
         return saveButton;
-    }
-
-    public ObjectOutputStream getObjOut() {
-        return objOut;
     }
 }
