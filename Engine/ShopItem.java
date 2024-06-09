@@ -2,9 +2,8 @@ package Engine;
 
 import javax.swing.JButton;
 import java.awt.Image;
-import java.io.Serializable;
 
-public class ShopItem implements Serializable {
+public class ShopItem {
     private Entity object;
     private int x, y, width, height, price;
     private JButton buy;
