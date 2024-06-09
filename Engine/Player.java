@@ -1,7 +1,9 @@
 package Engine;
 import Threads.addCurrency;
 
-public class Player {
+import java.io.Serializable;
+
+public class Player implements Serializable {
     private int pedros_currency;
     private int[] object_counter;       // [0] Planet >> +1 pedros por segundo. [1] Star >> +3 pedros por segundo. [2] Comet >> +5 pedros por segundo.
     private int pps;                    //Pedros por segundo.
@@ -10,6 +12,9 @@ public class Player {
         this.pedros_currency = 0;
         this.object_counter = new int[3];
         this.pps = 0;
+    }
+
+    public void initializeComponents() {
         addCurrencyThread();
         update_ppsThread();
     }
@@ -57,6 +62,10 @@ public class Player {
 
     public void addObject (int id) {
         this.object_counter[id]++;
+    }
+
+    public int[] getObjectCounter() {
+        return this.object_counter;
     }
 
     public int getPlanetCount() {

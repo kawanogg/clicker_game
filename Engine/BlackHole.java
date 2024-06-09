@@ -1,11 +1,12 @@
 package Engine;
 
 import java.awt.Image;
+import java.io.Serializable;
 
-public class BlackHole extends Entity {
+public class BlackHole extends Entity implements Serializable {
     @SuppressWarnings("unused")
     private Player player;  
-    private Image image_init, image_clicked;
+    private transient Image image_init, image_clicked;
     private int x_init, y_init, x_clicked, y_clicked;
 
 
