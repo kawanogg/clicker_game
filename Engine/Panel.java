@@ -89,6 +89,7 @@ public class Panel extends JPanel {
                 }
             });
             this.add(item.getButton());
+            this.add(item.getLabel());
         }
 
         this.add(this.currencyLabel);

@@ -10,7 +10,7 @@ public class BlackHole extends Entity implements Serializable {
     private int x_init, y_init, x_clicked, y_clicked;
 
 
-    public BlackHole (int x, int y, int width, int height, Player player) {
+    public BlackHole (int x, int y, int width, int height, Player player) throws ImageNotFoundException { 
         super("img/black_hole.png", x, y, width, height, -1);
 
         this.player = player;

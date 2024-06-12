@@ -14,7 +14,6 @@ public class addCurrency extends Thread{
             try{
                 Thread.sleep(1000);
                 player.addCurrency(player.getPPS());
-                System.out.println("Currency: " + player.getCurrency());
             }catch(InterruptedException e){
                 e.printStackTrace();
             }
